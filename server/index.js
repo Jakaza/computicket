@@ -24,7 +24,7 @@ app.use(express.json());
 
 setupDB();
 
-// require('./config/passport')(app);
+require('./config/passport')(app);
 app.use(routes);
 
 const server = app.listen(port, () => {
