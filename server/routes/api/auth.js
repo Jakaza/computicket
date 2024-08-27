@@ -17,15 +17,19 @@ const { EMAIL_PROVIDER, JWT_COOKIE } = require('../../constants');
 const { secret, tokenLife } = keys.jwt;
 
 router.get('/testing', async (req, res) => {
+
+
+
   res.status(200).json({
     success: true,
-    messgae: "It is finally working...."
+    messgae: "It is finally working....",
+    body: req.body
   });
 })
 
 router.post('/register', async (req, res) => {
   try {
-    const { email, firstName, lastName, password } = req.body;
+    const { username,  email, firstName, lastName, password } = req.body;
 
     if (!email) {
       return res
@@ -50,6 +54,7 @@ router.post('/register', async (req, res) => {
     }
 
     const user = new User({
+      username,
       email,
       password,
       firstName,
@@ -77,9 +82,9 @@ router.post('/register', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      subscribed,
       token: `Bearer ${token}`,
       user: {
+        username: registeredUser.username,
         id: registeredUser.id,
         firstName: registeredUser.firstName,
         lastName: registeredUser.lastName,
