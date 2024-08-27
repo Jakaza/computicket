@@ -11,7 +11,7 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/user');
 // const mailchimp = require('../../services/mailchimp');
 // const mailgun = require('../../services/mailgun');
-const sendEmail = require('../../services/nodemail');
+const {sendEmail} = require('../../services/nodemail');
 const keys = require('../../config/keys');
 const { EMAIL_PROVIDER, JWT_COOKIE } = require('../../constants');
 
@@ -199,6 +199,8 @@ router.post('/forgot', async (req, res) => {
       message: 'Please check your email for the link to reset your password.'
     });
   } catch (error) {
+    console.log(error);
+    
     res.status(400).json({
       error: 'Your request could not be processed. Please try again.'
     });
