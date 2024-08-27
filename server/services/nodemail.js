@@ -16,39 +16,30 @@ const transporter = nodemailer.createTransport({
   });
 
 
-exports.sendEmail = async (email, host,  type, data) => {
+exports.sendEmail = async (email, type , host, data) => {
     try {
-      const message = prepareTemplate(type, host , data);
-  
+      const message = prepareTemplate( type ,host, data);
+
       const config = {
         from: `MERN Computicket! <${sender}>`,
         to: email,
         subject: message.subject,
         text: message.text
       };
-
       const info = await transporter.sendMail(config);
-
-      console.log(info);
-      
-      
     } catch (error) {
-
         console.log(error);
-        
       return error;
     }
   };
 
 
   const prepareTemplate = (type, host, data) => {
-    let message;
-  
+
     switch (type) {
       case 'reset':
         message = template.resetEmail(host, data);
         break;
-  
       case 'reset-confirmation':
         message = template.confirmResetPasswordEmail();
         break;

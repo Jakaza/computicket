@@ -1,4 +1,7 @@
 exports.resetEmail = (host, resetToken) => {
+
+    console.log("resetEmail ", host);
+    
     const message = {
       subject: 'Reset Password',
       text:
@@ -15,6 +18,9 @@ exports.resetEmail = (host, resetToken) => {
   
 
   exports.confirmResetPasswordEmail = () => {
+
+
+
     const message = {
       subject: 'Password Changed',
       text:
