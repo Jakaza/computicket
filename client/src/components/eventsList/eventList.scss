@@ -1,0 +1,38 @@
+.events-list-container {
+    text-align: center;
+    padding: 50px 20px;
+
+
+    .events-list-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+
+    .events-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .see-more-button {
+        margin-top: 30px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+
+
+        &:hover {
+            background-color: #45a049;
+        }
+
+    }
+
+}
