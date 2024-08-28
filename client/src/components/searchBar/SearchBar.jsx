@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const types = ["buy", "rent"];
 
-function SearchBar() {
+function SearchBar({hide = false}) {
   const [query, setQuery] = useState({
     type: "buy",
     city: "",
@@ -22,9 +22,15 @@ function SearchBar() {
 
   return (
     <div className="search-bar-container">
-        <h1 className="search-title">Events made easy.</h1>
-        <p className="search-subtitle">No hassles. No hold-ups. Only the joy of making great events happen.</p>
-        <div className="search-input-wrapper">
+
+    {
+      !hide && <>
+              <h1 className="search-title">Events made easy.</h1>
+            <p className="search-subtitle">No hassles. No hold-ups. Only the joy of making great events happen.</p> 
+      </>
+    }
+
+     <div className="search-input-wrapper">
             <input
                 type="text"
                 placeholder="Search for Events"
