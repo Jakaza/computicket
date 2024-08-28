@@ -9,6 +9,35 @@ const { ROLES } = require('../../constants');
 const Event = require('../../models/event');
 
 
+router.get('/list',  async (req, res) => {
+  try {
+    const events = await Event.find()
+        .populate('organizer');
+
+
+        if (events.length <= 0) {
+          return res.status(404).json({
+            success: true,
+            message: 'No event found.'
+          });
+        }
+
+    res.status(200).json({
+      success: true,
+      message: `events has been fetched successfully!`,
+      events: events
+    });
+    
+  } catch (error) {
+    console.log(error);
+        
+    return res.status(400).json({
+      error: 'Your request could not be processed. Please try again.'
+    });
+  }
+})
+
+
 router.get('/', 
   auth,
   role.check(ROLES.Admin, ROLES.Merchant),  async (req, res) => {
@@ -104,44 +133,33 @@ router.put(
 );
 
 
+router.delete(
+  '/delete/:id',
+  auth,
+  role.check(ROLES.Admin, ROLES.Merchant),
+  async (req, res) => {
+    try {
+      const event = await Event.deleteOne({ _id: req.params.id , organizer: req.user._id });
 
-router.get('/list',  async (req, res) => {
-  try {
-    const events = await Event.find()
-        .populate('organizer');
-    res.status(200).json({
-      success: true,
-      message: `events has been fetched successfully!`,
-      events: events
-    });
-    
-  } catch (error) {
-    console.log(error);
-        
-    return res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
-    });
+      res.status(200).json({
+        success: true,
+        message: `Event has been deleted successfully!`,
+        event
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({
+        error: 'Your request could not be processed. Please try again.'
+      });
+    }
   }
-})
+);
 
-router.get('/list',  async (req, res) => {
-  try {
-    const events = await Event.find()
-        .populate('organizer');
-    res.status(200).json({
-      success: true,
-      message: `events has been fetched successfully!`,
-      events: events
-    });
-    
-  } catch (error) {
-    console.log(error);
-        
-    return res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
-    });
-  }
-})
+
+
+
+
+
 
 router.get('/list/search/:name', async (req, res) => {
   const searchTerm = req.params.name;
