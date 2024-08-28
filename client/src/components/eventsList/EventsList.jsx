@@ -2,6 +2,7 @@ import React from 'react'
 import EventCard from '../eventCard/EventCard';
 
 import "./eventList.scss"
+import { Link } from 'react-router-dom';
 
 const events = [
     {
@@ -55,7 +56,11 @@ function EventsList() {
                     />
                 ))}
             </div>
-            <button className="see-more-button">SEE MORE</button>
+            <button className="see-more-button">
+                <Link to={`/events`}>
+                SEE MORE
+                </Link>
+            </button>
         </div>
     );
 }

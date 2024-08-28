@@ -6,6 +6,7 @@ import Layout from './routes/layout/Layout';
 import HomePage from './routes/home/HomePage';
 import Login from './routes/login/Login';
 import Event from './routes/event/Event';
+import Events from './routes/event/Events';
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
         {
           path: "/register",
           element: <HomePage />,
+        },
+        {
+          path: "/events",
+          element: <Events />,
         },
       ],
     },
