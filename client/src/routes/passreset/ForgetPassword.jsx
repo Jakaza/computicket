@@ -1,9 +1,6 @@
 import React from 'react'
 import  "./forgetPassword.scss"
 import { Box, Button, TextField } from '@mui/material'
-import { Link } from 'react-router-dom'
-
-
 
 function ForgetPassword() {
   return (
