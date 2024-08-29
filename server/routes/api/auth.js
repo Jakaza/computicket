@@ -85,7 +85,8 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, firstName, lastName, password } = req.body;
+    const { username, email, firstName, lastName, password } = req.body;
+    console.log(username);
 
     if (!email) {
       return res
@@ -110,6 +111,7 @@ router.post("/register", async (req, res) => {
     }
 
     const user = new User({
+      username,
       email,
       password,
       firstName,
@@ -132,6 +134,7 @@ router.post("/register", async (req, res) => {
       success: true,
       token: `Bearer ${token}`,
       user: {
+        username: registeredUser.username,
         id: registeredUser.id,
         firstName: registeredUser.firstName,
         lastName: registeredUser.lastName,
@@ -278,6 +281,10 @@ router.post("/reset", auth, async (req, res) => {
       error: "Your request could not be processed. Please try again.",
     });
   }
+});
+
+router.post("/logout", async (req, res) => {
+  res.clearCookie("token").status(200).json({ message: "Logout Successful" });
 });
 
 module.exports = router;
