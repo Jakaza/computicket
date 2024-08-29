@@ -5,12 +5,25 @@ import SearchBar from '../../components/searchBar/SearchBar'
 
 import { events } from "../../lib/dummyData.js"
 import EventCard from '../../components/eventCard/EventCard.jsx'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 
 
 function Events() {
+
+  const [page, setPage] = React.useState(1);
+
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+
   return (
     <div className='eventsConatiner'>
+
+      <div className="wrapper">
       <div className="eventsFilter">
         <SearchBar hide={true} />
 
@@ -145,6 +158,7 @@ Pretoria 139
 
 
       </div>
+
       <div className="events">
         {events.map((event, index) => (
           <EventCard
@@ -157,7 +171,29 @@ Pretoria 139
             id={event.id}
           />
         ))}
+
+
       </div>
+      </div>
+
+      <div className="paginationWrapper">
+        <div className="openSpace"></div>
+        <div className="pagination">
+        <div className="pagination">
+          <Stack spacing={2}>
+            <Pagination
+              count={10}
+              page={page}
+              onChange={handlePageChange}
+              color="primary"
+            />
+          </Stack>
+        </div>
+        </div>
+      </div>
+
+
+
     </div>
   )
 }

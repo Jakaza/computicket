@@ -1,48 +1,35 @@
+.event {
+  .imageContainer {
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
 
-.event{
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 
+  .eventDetails {
+    display: flex;
+    padding: 50px 15px 0 0;
+    justify-content: space-between;
+    margin-bottom: 80px;
 
-    .imageContainer{
-        width: 100%;
-        overflow: hidden;
-        height: 400px;
-
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .organizer {
+      h2 {
+        font-family: 500;
+        padding: 0 0 20px 0;
+      }
+      p {
+        padding: 15px 0;
+      }
     }
 
-    .eventDetails{
-        display: flex;
-        padding: 50px 15px 0 0;
-        justify-content: space-between;
-        margin-bottom: 80px;
-
-
-        .organizer{
-            h2{
-                font-family: 500;
-                padding: 0 0 20px 0;
-            }
-            p{
-                padding: 15px 0;
-            }
-        }
-
-
-
-
-        .mapContainer{
-            width: 50%;
-            height: 500px;
-        }
-
-
-
+    .mapContainer {
+      width: 50%;
+      height: 500px;
     }
-
-
-
+  }
 }
