@@ -1,4 +1,5 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const chalk = require("chalk");
 const cors = require("cors");
@@ -10,6 +11,7 @@ const routes = require("./routes");
 const setupDB = require("./utils/db");
 
 const { port } = keys;
+
 const app = express();
 
 app.use(cors({ origin: keys.app.clientURL, credentials: true }));
@@ -22,8 +24,6 @@ app.use(express.json());
 //     frameguard: true
 //   })
 // );
-
-app.use(cors());
 
 setupDB();
 
