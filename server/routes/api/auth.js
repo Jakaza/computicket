@@ -126,20 +126,12 @@ router.post("/register", async (req, res) => {
       id: registeredUser.id,
     };
 
-    // await mailgun.sendEmail(
-    //   registeredUser.email,
-    //   'signup',
-    //   null,
-    //   registeredUser
-    // );
-
     const token = jwt.sign(payload, secret, { expiresIn: tokenLife });
 
     res.status(200).json({
       success: true,
       token: `Bearer ${token}`,
       user: {
-        username: registeredUser.username,
         id: registeredUser.id,
         firstName: registeredUser.firstName,
         lastName: registeredUser.lastName,
