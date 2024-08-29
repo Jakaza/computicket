@@ -1,36 +1,47 @@
-
-.eventsConatiner{
+.eventsConatiner {
+  .wrapper {
     display: flex;
 
+    .eventsFilter {
+      width: 25%;
 
-    .eventsFilter{
-        width: 25%;
+      li {
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
 
-        li{
-            margin-bottom: 15px;
-            font-weight: 500;
+      label {
+        display: block;
+        padding: 5px 0;
+        margin-bottom: 10px;
+
+        input {
+          margin-right: 5px;
         }
-
-         label {
-            display: block;
-            padding: 5px 0;
-            margin-bottom: 10px;
-
-            input{
-                margin-right: 5px;
-            }
-        }
+      }
     }
 
+    .events {
+      width: 75%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-top: 30px;
+      height: calc(100vh - 55px);
+    }
+  }
 
-    .events{
-        width: 75%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        padding-top: 30px;
+  .paginationWrapper {
+    display: flex;
+
+    .openSpace {
+      width: 25%;
     }
 
-
+    .pagination {
+      width: 75%;
+      padding: 25px 0;
+    }
+  }
 }
