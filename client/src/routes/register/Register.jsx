@@ -12,26 +12,36 @@ function Register() {
   const navigate = useNavigate();
 
 
-  const handleSubmit = (en) => {
+  const handleSubmit  = async (en) => {
     en.preventDefault()
     setError("")
     setIsLoading(true);
     const formData = new FormData(en.target);
-    const firstname = formData.get("firstname");
-    const lastname = formData.get("lastname");
+    const firstName = formData.get("firstname");
+    const lastName = formData.get("lastname");
     const email = formData.get("email");
     const password = formData.get("password");
 
     try {
-
-      const res = apiRequest.post("/auth/register", {
-        firstname,
-        lastname,
+      const res = await apiRequest.post("/auth/register", {
+        firstName,
+        lastName,
         email,
         password
       })
-      navigate("/login")
+      if(res.status === 200){
+        navigate()
+      }
+      if(res.status === 400){
+        console.log("USER INPUT ERROR");
+        console.log(res.status);
+        setError(res.error);
+      } 
     } catch (error) {
+      if(error.code == "ERR_NETWORK"){
+        console.log("ERR_NETWORK SERVER IS DOWN" , ERR_NETWORK);
+      }
+      console.log(error);
       setError(error)
     }finally{
       setIsLoading(false)
