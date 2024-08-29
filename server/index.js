@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const chalk = require("chalk");
-// const cors = require('cors');
+const cors = require("cors");
 // const helmet = require('helmet');
 
 const keys = require("./config/keys");
@@ -20,7 +20,8 @@ app.use(express.json());
 //     frameguard: true
 //   })
 // );
-// app.use(cors());
+
+app.use(cors());
 
 setupDB();
 
