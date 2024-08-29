@@ -12,6 +12,8 @@ const setupDB = require("./utils/db");
 const { port } = keys;
 const app = express();
 
+app.use(cors({ origin: keys.app.clientURL, credentials: true }));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(

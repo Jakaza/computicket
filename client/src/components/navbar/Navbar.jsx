@@ -7,7 +7,7 @@ function Navbar() {
     <div className='navbar'>
       <div className="wrapper">
         <a href='/' className="logo">
-          <img src="https://www.quicket.co.za/content/images/static/01_PrimaryLogo_4c.svg" alt="" />
+          <img src="/logo.png" alt="" />
         </a>
         <ul>
           <li>EVENTS</li>
