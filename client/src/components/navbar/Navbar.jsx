@@ -12,7 +12,7 @@ function Navbar() {
         <ul>
           <li>EVENTS</li>
           <li><Link className='navLink' to={`/events`}>BROWSE EVENTS</Link></li>
-          <li>LOGIN</li>
+          <li><Link className='navLink' to={`/login`}>LOGIN</Link> </li>
         </ul>
 
       </div>
