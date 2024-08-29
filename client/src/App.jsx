@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from './routes/layout/Layout';
 import HomePage from './routes/home/HomePage';
 import Login from './routes/login/Login';
+import Register from './routes/register/Register';
 import Event from './routes/event/Event';
 import Events from './routes/event/Events';
 
@@ -28,7 +29,7 @@ function App() {
         },
         {
           path: "/register",
-          element: <HomePage />,
+          element: <Register/>,
         },
         {
           path: "/events",
