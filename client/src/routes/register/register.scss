@@ -1,0 +1,23 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(90vh - 75px);
+
+  h3 {
+    padding: 15px 0;
+  }
+
+  .inputBox {
+    margin: 15px 0;
+  }
+
+  p {
+    padding: 15px 0;
+  }
+
+  .checkBox {
+    margin: 15px 0;
+  }
+}
