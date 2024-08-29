@@ -8,6 +8,7 @@ import Login from './routes/login/Login';
 import Register from './routes/register/Register';
 import Event from './routes/event/Event';
 import Events from './routes/event/Events';
+import ForgetPassword from './routes/passreset/ForgetPassword';
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +35,10 @@ function App() {
         {
           path: "/events",
           element: <Events />,
+        },
+        {
+          path: "/account/forgotpassword",
+          element: <ForgetPassword />,
         },
       ],
     },
