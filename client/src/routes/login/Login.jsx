@@ -20,7 +20,7 @@ function Login() {
         Log in
   </Button>
 
-  <p><Link to={`/`}>Forgot your password?</Link> </p>
+  <p><Link to={`/account/forgotpassword`}>Forgot your password?</Link> </p>
 
   <p>Don't have account? <Link to={`/register`}>Signup</Link> </p>
 
