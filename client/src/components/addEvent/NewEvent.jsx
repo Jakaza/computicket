@@ -13,7 +13,7 @@ function NewEvent() {
     const formData = new FormData(e.target);
     const inputs = Object.fromEntries(formData);
 
-    log
+    console.log(inputs);
 
   }
 
@@ -114,7 +114,7 @@ function NewEvent() {
             multiple: true,
             cloudName: "dguxu4bqb",
             uploadPreset: "computicket",
-            folder: "event",
+            folder: "events",
           }}
           setState={setImages}
         />
