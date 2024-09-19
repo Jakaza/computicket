@@ -3,7 +3,7 @@ import "./sidebar.scss";
 import { Button } from "@mui/material";
 import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const { updateUser } = useContext(AuthContext);
@@ -24,8 +24,14 @@ function Sidebar() {
       <nav>
         <ul>
           <li>My Tickets</li>
-          <li>My Registrations</li>
-          <li>My Teams</li>
+          <li>
+          <Link to="events" className="link"> View Events</Link>
+           </li>
+          <li>
+
+          <Link to="new-event" className="link">Add New Event</Link>
+
+          </li>
           <li>Account profile</li>
           <li>API</li>
           <li>Bank accounts</li>

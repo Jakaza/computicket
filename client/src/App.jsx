@@ -51,6 +51,10 @@ function App() {
           path: "/profile",
           element: <Profile />,
         },
+        {
+          path: "/profile/*",
+          element: <Profile />,
+        },
       ],
     },
   ]);

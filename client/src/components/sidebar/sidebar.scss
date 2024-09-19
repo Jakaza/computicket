@@ -4,20 +4,39 @@
   padding: 20px;
   border-right: 1px solid #ddd;
   height: 100%;
+
+  nav {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      
+
+      li {
+        margin: 10px 0;
+        color: #ffffff;
+        cursor: pointer;
+        background-color: #444444;
+        padding: 10px;
+
+        .link {
+          font-weight: bold;
+          color: #007bff; /* Bootstrap primary color */
+          text-decoration: none; /* Removes the underline */
+          transition: color 0.3s; /* Smooth transition for hover effect */
+     
+          &:hover {
+            color: #0056b3; /* Darker shade for hover */
+          }
+     
+        }
+
+        &:hover {
+          color: #4caf50;
+          font-weight: bold;
+        }
+      }
+      
+    }
+  }
 }
 
-.sidebar nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar nav ul li {
-  margin: 10px 0;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.sidebar nav ul li:hover {
-  color: #4caf50;
-  font-weight: bold;
-}
